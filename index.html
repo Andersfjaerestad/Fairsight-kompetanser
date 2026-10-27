@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fairsight Kompetansevalg</title>
+
+<style>
+body{
+    font-family:Segoe UI,sans-serif;
+    background:#e8e4ff;
+    margin:0;
+    padding:30px;
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+}
+
+.header{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+.header input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#eceaf2;
+    padding:20px;
+    border-radius:12px;
+}
+
+.card.selected{
+    background:#9ef0cb;
+}
+
+.top{
+    display:flex;
+    justify-content:space-between;
+}
+
+.title{
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.details{
+    display:none;
+    margin-top:15px;
+    background:white;
+    padding:12px;
+    border-radius:8px;
+}
+
+button{
+    padding:10px 16px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.submit{
+    background:#241b63;
+    color:white;
+    margin-top:20px;
+}
+
+.submit:disabled{
+    opacity:0.5;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<h1>Kompetansevalg for Fairsight</h1>
+
+<p>
+Velg de seks kompetansene som er viktigst for å lykkes i stillingen.
+Valgene danner grunnlaget for hvilke områder som vektlegges i
+Fairsight personlighetstesten.
+</p>
+
+<input type="text" placeholder="Stillingstittel">
+
+<br><br>
+
+<button id="submitBtn" class="submit" disabled>
+Send inn
+</button>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="top">
+<div>
+<div class="title">Communication</div>
+<div>Kommuniserer effektivt og tydelig.</div>
+</div>
+<input type="checkbox" class="check">
+</div>
+
+<br>
+
+<button class="toggle">Les mer</button>
+
+<div class="details">
+Kommuniserer klart og tydelig både muntlig og skriftlig.
+Tilpasser budskapet til mottakeren og sikrer god forståelse.
+</div>
+</div>
+
+<div class="card">
+<div class="top">
+<div>
+<div class="title">Collaboration</div>
+<div>Arbeider effektivt sammen med andre.</div>
+</div>
+<input type="checkbox" class="check">
+</div>
+
+<br>
+
+<button class="toggle">Les mer</button>
+
+<div class="details">
+Bidrar positivt i team, deler kunnskap og arbeider mot felles mål.
+</div>
+</div>
+
+<div class="card">
+<div class="top">
+<div>
+<div class="title">Decision Making</div>
+<div>Tar gode beslutninger.</div>
+</div>
+<input type="checkbox" class="check">
+</div>
+
+<br>
+
+<button class="toggle">Les mer</button>
+
+<div class="details">
+Tar beslutninger basert på fakta, vurderinger og konsekvenser.
+</div>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+document.querySelectorAll(".toggle").forEach(btn => {
+
+btn.addEventListener("click", () => {
+
+const details = btn.nextElementSibling;
+
+details.style.display =
+details.style.display === "block"
+? "none"
+: "block";
+
+});
+
+});
+
+const submitBtn = document.getElementById("submitBtn");
+
+document.querySelectorAll(".check").forEach(box => {
+
+box.addEventListener("change", () => {
+
+const selected =
+document.querySelectorAll(".check:checked");
+
+if(selected.length > 6){
+
+box.checked = false;
+alert("Du kan velge maksimalt 6 kompetanser.");
+return;
+
+}
+
+document.querySelectorAll(".card").forEach(card => {
+
+card.classList.toggle(
+"selected",
+card.querySelector(".check").checked
+);
+
+});
+
+submitBtn.disabled =
+selected.length !== 6;
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
