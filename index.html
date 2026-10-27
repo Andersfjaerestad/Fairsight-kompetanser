@@ -1,227 +1,159 @@
-<!DOCTYPE html>
-<html lang="no">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fairsight Kompetansevalg</title>
+const competencies = [
 
-<style>
-body{
-    font-family:Segoe UI,sans-serif;
-    background:#e8e4ff;
-    margin:0;
-    padding:30px;
+{
+title:"Adaptability & Flexibility",
+summary:"Tilpasse atferd til endrede krav og omgivelser",
+details:"Tilpasser seg nye situasjoner, omgivelser og krav. Justerer arbeidsmåter, prosesser og tilnærminger når forholdene endrer seg. Tar imot tilbakemeldinger på en konstruktiv måte og bruker dem til læring og forbedring."
+},
+
+{
+title:"Collaboration",
+summary:"Arbeide effektivt sammen med andre",
+details:"Søker felles forståelse av mål og prioriteringer. Bidrar aktivt til å nå teamets målsettinger. Deler kunnskap, erfaringer og ideer med kolleger. Kommuniserer utfordringer og problemer på en åpen måte og støtter andre når det er behov."
+},
+
+{
+title:"Commercial Insight",
+summary:"Skape og utvikle forretningsverdi",
+details:"Forstår virksomhetens forretningsmodell og konkurransesituasjon. Evner å håndtere kompleksitet og usikkerhet. Vurderer konsekvenser av strategier, beslutninger og handlinger for ulike interessenter. Ser hvordan samspillet mellom beslutninger og aktiviteter påvirker virksomhetens resultater. Tilpasser seg endringer i rammebetingelser og tar velbegrunnede beslutninger."
+},
+
+{
+title:"Communication",
+summary:"Kommunisere effektivt og oppmerksomt",
+details:"Kommuniserer tydelig og korrekt både skriftlig og muntlig. Holder godt strukturerte presentasjoner. Tilpasser budskapet til mottakeren og sikrer at informasjonen blir forstått. Lytter aktivt uten å avbryte og stiller relevante spørsmål når det er hensiktsmessig. Gjør en bevisst innsats for å forstå hva andre forsøker å formidle."
+},
+
+{
+title:"Creativity & Innovation",
+summary:"Skape nye og bedre løsninger",
+details:"Genererer nye ideer og finner nye løsninger på utfordringer. Utforsker utradisjonelle tilnærminger når det er relevant. Reflekterer over erfaringer og resultater fra tidligere løsninger for å finne forbedringer."
+},
+
+{
+title:"Critical Thinking & Problem Solving",
+summary:"Trekke gode konklusjoner gjennom analyse",
+details:"Identifiserer problemer og forstår hvilke konsekvenser de kan få. Utvikler løsninger og vurderer styrker og svakheter ved ulike alternativer. Evaluerer konklusjoner og beslutninger fra flere perspektiver og vurderer hvilken verdi ulike løsninger gir for interessentene."
+},
+
+{
+title:"Cultural Humility",
+summary:"Forstå og verdsette kulturelle forskjeller",
+details:"Viser respekt for mennesker med ulik kulturell bakgrunn. Ser kultur som noe unikt hos enkeltmennesker fremfor å generalisere grupper. Er bevisst egne antakelser og fordommer, reflekterer over egne verdier og ønsker aktivt å utvikle forståelsen av andre kulturer."
+},
+
+{
+title:"Decision Making",
+summary:"Ta riktige beslutninger til riktig tid",
+details:"Søker relevant, oppdatert og objektiv informasjon. Vurderer saker fra ulike vinkler og perspektiver. Tar hensyn til konsekvenser og prioriterer mellom alternativer basert på nytte og risiko. Tar beslutninger på en hensiktsmessig og tidsriktig måte."
+},
+
+{
+title:"Digital Fluency",
+summary:"Bruke teknologi for å forbedre resultater",
+details:"Er åpen for ny teknologi og hvordan den kan brukes i arbeidsprosesser. Tilegner seg nødvendig kunnskap for å bruke og feilsøke digitale verktøy. Benytter teknologi for å forbedre kvalitet, kommunikasjon, effektivitet og arbeidsprosesser. Ser nye muligheter for verdiskaping gjennom teknologi."
+},
+
+{
+title:"Empowering & Delegating",
+summary:"Styrke og utvikle medarbeidere",
+details:"Setter tydelige mål og forventninger. Delegerer ansvar og beslutningsmyndighet og følger opp på en tillitsbasert måte. Sikrer at medarbeidere har nødvendige ressurser og kompetanse. Motiverer til læring, problemløsning og kontinuerlig utvikling."
+},
+
+{
+title:"Enthusiasm",
+summary:"Arbeide med energi og tro på egne evner",
+details:"Setter ambisiøse mål og legger ned betydelig innsats for å oppnå dem. Trives med høyt aktivitetsnivå og mange parallelle oppgaver. Møter utfordringer med optimisme og har tillit til egen kompetanse og gjennomføringsevne."
+},
+
+{
+title:"Ethics & Integrity",
+summary:"Handle ærlig, rettferdig og ansvarlig",
+details:"Følger etiske prinsipper og standarder. Tar ansvar for egne handlinger og lærer av egne feil uten å legge skylden på andre. Opptrer ærlig og pålitelig. Viser respekt for andre mennesker og forståelse for hvordan egen atferd påvirker omgivelsene."
+},
+
+{
+title:"Financial Awareness",
+summary:"Forstå økonomiske konsekvenser av beslutninger",
+details:"Forstår sammenhengen mellom budsjetter, kostnader og virksomhetens strategi. Utarbeider realistiske budsjetter og vurderer økonomiske konsekvenser av ulike valg. Identifiserer risiko og vurderer sannsynlige utfall. Prioriterer basert på kost-nytte-vurderinger."
+},
+
+{
+title:"Inclusion",
+summary:"Skape respekt, aksept og tilhørighet",
+details:"Behandler mennesker rettferdig uavhengig av bakgrunn, rolle eller status. Respekterer ulike synspunkter og perspektiver. Verdsetter mangfold og anerkjenner at mennesker har ulike behov og utfordringer. Bidrar til at alle føler seg inkludert."
+},
+
+{
+title:"Influence & Persuasion",
+summary:"Påvirke og overbevise andre",
+details:"Identifiserer hvilke personer som bør påvirkes for å nå mål. Bidrar til å forme agenda og diskusjoner. Forstår andres perspektiver og bruker relevante argumenter på en trygg og overbevisende måte."
+},
+
+{
+title:"Networking",
+summary:"Bygge et relevant profesjonelt nettverk",
+details:"Oppsøker relasjoner på en systematisk og målrettet måte. Bygger tillit gjennom åpen og ærlig kommunikasjon. Viser respekt og anerkjennelse for andre mennesker. Opprettholder kontakt med relasjoner som kan være nyttige over tid."
+},
+
+{
+title:"Organizational Awareness",
+summary:"Forstå virksomhetens formål og interne samspill",
+details:"Forstår hvordan strategi og forretningsmodell henger sammen med arbeidet som utføres i organisasjonen. Vet hvilke team og funksjoner som gjør hva, hvordan beslutninger tas og hvem som påvirker dem. Bygger relasjoner på tvers av avdelinger og identifiserer nøkkelpersoner som bidrar til effektivt samarbeid."
+},
+
+{
+title:"Planning & Organizing",
+summary:"Planlegge og organisere arbeid på en systematisk måte",
+details:"Utarbeider effektive arbeidsplaner som støtter virksomhetens mål. Arbeider strukturert og følger opp fremdrift. Prioriterer oppgaver hensiktsmessig og tilpasser planer når forutsetningene endrer seg."
+},
+
+{
+title:"Resilience",
+summary:"Håndtere utfordringer og komme tilbake etter motgang",
+details:"Tilpasser seg nye krav og endrede situasjoner. Håndterer utfordringer og tilbakeslag på en konstruktiv måte. Bevarer roen under press og har tro på egne evner og muligheten for å lykkes."
+},
+
+{
+title:"Safety Awareness",
+summary:"Ivareta sikkerheten for seg selv og andre",
+details:"Holder seg oppdatert på gjeldende sikkerhetskrav og regelverk. Informerer andre om relevante sikkerhetsrutiner. Identifiserer risiko og handler raskt for å forhindre at problemer utvikler seg til alvorlige hendelser."
+},
+
+{
+title:"Self-Management",
+summary:"Lede egen læring og utvikling",
+details:"Kjenner egne styrker og utviklingsområder. Søker læring som bidrar til måloppnåelse og faglig utvikling. Reflekterer over erfaringer og vurderer hva som kan gjøres annerledes neste gang. Ber om støtte når det er hensiktsmessig."
+},
+
+{
+title:"Self-Awareness",
+summary:"Forstå seg selv og egen påvirkning på andre",
+details:"Reflekterer ærlig over egne styrker og begrensninger. Har innsikt i egne tanker, følelser og reaksjoner. Forstår hvordan egne verdier, behov og motivasjonsfaktorer påvirker atferd. Er bevisst hvordan egen fremferd påvirker andre og søker aktivt tilbakemeldinger for utvikling."
+},
+
+{
+title:"Service-Mindedness",
+summary:"Levere service av høy kvalitet",
+details:"Forstår og møter behovene til andre. Opprettholder en positiv innstilling. Er ærlig og skaper realistiske forventninger. Leverer arbeid og service med høy kvalitet."
+},
+
+{
+title:"Social and Climate Responsibility",
+summary:"Bidra til et mer bærekraftig samfunn",
+details:"Tar hensyn til sosiale konsekvenser av beslutninger. Identifiserer mer ressurseffektive løsninger og bidrar til å redusere miljøbelastning. Følger virksomhetens bærekraftsarbeid og samarbeider med lokalsamfunn når det er relevant."
+},
+
+{
+title:"Taking Initiative",
+summary:"Handle uten å vente på instrukser",
+details:"Forutser potensielle utfordringer og ser muligheter for forbedring. Tar initiativ til handling for å nå mål og forbedre situasjoner uten å vente på konkrete instrukser. Bidrar frivillig når det er behov."
+},
+
+{
+title:"Utilizing Expertise",
+summary:"Bruke kunnskap og erfaring i praksis",
+details:"Viser god forståelse av relevante metoder, prosesser, produkter og systemer. Anvender kompetanse i daglig arbeid og overfører kunnskap til nye områder når det er relevant. Oppdaterer og videreutvikler egen ekspertise ved behov."
 }
 
-.container{
-    max-width:1400px;
-    margin:auto;
-}
-
-.header{
-    background:white;
-    padding:20px;
-    border-radius:12px;
-    margin-bottom:20px;
-}
-
-.header input{
-    width:100%;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:8px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-    gap:20px;
-}
-
-.card{
-    background:#eceaf2;
-    padding:20px;
-    border-radius:12px;
-}
-
-.card.selected{
-    background:#9ef0cb;
-}
-
-.top{
-    display:flex;
-    justify-content:space-between;
-}
-
-.title{
-    font-size:24px;
-    font-weight:bold;
-    margin-bottom:10px;
-}
-
-.details{
-    display:none;
-    margin-top:15px;
-    background:white;
-    padding:12px;
-    border-radius:8px;
-}
-
-button{
-    padding:10px 16px;
-    border:none;
-    border-radius:20px;
-    cursor:pointer;
-}
-
-.submit{
-    background:#241b63;
-    color:white;
-    margin-top:20px;
-}
-
-.submit:disabled{
-    opacity:0.5;
-}
-</style>
-
-</head>
-<body>
-
-<div class="container">
-
-<div class="header">
-
-<h1>Kompetansevalg for Fairsight</h1>
-
-<p>
-Velg de seks kompetansene som er viktigst for å lykkes i stillingen.
-Valgene danner grunnlaget for hvilke områder som vektlegges i
-Fairsight personlighetstesten.
-</p>
-
-<input type="text" placeholder="Stillingstittel">
-
-<br><br>
-
-<button id="submitBtn" class="submit" disabled>
-Send inn
-</button>
-
-</div>
-
-<div class="grid">
-
-<div class="card">
-<div class="top">
-<div>
-<div class="title">Communication</div>
-<div>Kommuniserer effektivt og tydelig.</div>
-</div>
-<input type="checkbox" class="check">
-</div>
-
-<br>
-
-<button class="toggle">Les mer</button>
-
-<div class="details">
-Kommuniserer klart og tydelig både muntlig og skriftlig.
-Tilpasser budskapet til mottakeren og sikrer god forståelse.
-</div>
-</div>
-
-<div class="card">
-<div class="top">
-<div>
-<div class="title">Collaboration</div>
-<div>Arbeider effektivt sammen med andre.</div>
-</div>
-<input type="checkbox" class="check">
-</div>
-
-<br>
-
-<button class="toggle">Les mer</button>
-
-<div class="details">
-Bidrar positivt i team, deler kunnskap og arbeider mot felles mål.
-</div>
-</div>
-
-<div class="card">
-<div class="top">
-<div>
-<div class="title">Decision Making</div>
-<div>Tar gode beslutninger.</div>
-</div>
-<input type="checkbox" class="check">
-</div>
-
-<br>
-
-<button class="toggle">Les mer</button>
-
-<div class="details">
-Tar beslutninger basert på fakta, vurderinger og konsekvenser.
-</div>
-</div>
-
-</div>
-
-</div>
-
-<script>
-
-document.querySelectorAll(".toggle").forEach(btn => {
-
-btn.addEventListener("click", () => {
-
-const details = btn.nextElementSibling;
-
-details.style.display =
-details.style.display === "block"
-? "none"
-: "block";
-
-});
-
-});
-
-const submitBtn = document.getElementById("submitBtn");
-
-document.querySelectorAll(".check").forEach(box => {
-
-box.addEventListener("change", () => {
-
-const selected =
-document.querySelectorAll(".check:checked");
-
-if(selected.length > 6){
-
-box.checked = false;
-alert("Du kan velge maksimalt 6 kompetanser.");
-return;
-
-}
-
-document.querySelectorAll(".card").forEach(card => {
-
-card.classList.toggle(
-"selected",
-card.querySelector(".check").checked
-);
-
-});
-
-submitBtn.disabled =
-selected.length !== 6;
-
-});
-
-});
-
-</script>
-
-</body>
-</html>
+];
