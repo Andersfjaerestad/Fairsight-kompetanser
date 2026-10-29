@@ -537,29 +537,70 @@ cards.appendChild(card);
 });
 
 
-document.getElementById("startBtn").addEventListener("click",()=>{
+document.getElementById("generateBtn").addEventListener("click",()=>{
 
+const recruiterName =
+document.getElementById("recruiterName").value;
 
-document.getElementById("jobPreview").innerText =
+const recruiterEmail =
+document.getElementById("recruiterEmail").value;
+
+const jobTitle =
 document.getElementById("jobTitle").value;
 
+const managerName =
+document.getElementById("managerName").value;
 
 const comment =
 document.getElementById("comment").value;
 
+const subject =
+`Kompetanseutvelgelse - ${jobTitle}`;
+
+const link = window.location.href;
+
+const message =
+`Hei ${managerName},
+
+Som en del av rekrutteringsprosessen for stillingen ${jobTitle} ønsker jeg at du velger de seks kompetansene som du mener er viktigst for å lykkes i rollen.
+
+Klikk på lenken under for å gjennomføre kompetanseutvelgelsen.
+
+${link}
+
+${comment ? "Kommentar: " + comment : ""}
+
+På forhånd takk for hjelpen.
+
+Vennlig hilsen
+
+${recruiterName}`;
+
+document.getElementById("generatedLink").value = link;
+document.getElementById("generatedSubject").value = subject;
+document.getElementById("generatedMessage").value = message;
+
+document.getElementById("generatedSection").classList.remove("hidden");
+
+});
+
+document.getElementById("startBtn").addEventListener("click",()=>{
+
+document.getElementById("jobPreview").innerText =
+document.getElementById("jobTitle").value;
+
+const comment =
+document.getElementById("comment").value;
 
 if(comment){
 document.getElementById("commentPreview").innerHTML =
 "<strong>Kommentar:</strong> " + comment;
 }
 
-
 document.getElementById("setupPage").classList.add("hidden");
 document.getElementById("selectionPage").classList.remove("hidden");
 
-
 });
-
 
 document.querySelectorAll(".toggle").forEach(btn=>{
 
