@@ -178,30 +178,46 @@ line-height:1.8;
 
 <div id="setupPage" class="section">
 
-
 <h1>Kompetanseutvelgelse for rekruttering</h1>
 
+<label>Rekrutterers navn</label>
+<input id="recruiterName" type="text">
+
+<label>Rekrutterers e-post</label>
+<input id="recruiterEmail" type="email">
 
 <label>Stillingstittel</label>
 <input id="jobTitle" type="text">
 
-
-<label>Navn på avdelingsleder</label>
+<label>Navn på mottaker</label>
 <input id="managerName" type="text">
 
-
-<label>Mottakere av kompetanseutvalg</label>
-<input id="recipients" type="text" placeholder="Navn eller e-postadresser">
-
+<label>Mottaker av kompetanseutvalg (e-post)</label>
+<input id="managerEmail" type="email">
 
 <label>Kommentar til avdelingsleder (valgfritt)</label>
 <textarea id="comment"></textarea>
 
-
-<button id="startBtn" class="primary-btn">
-Start utvelgelsen
+<button id="generateBtn" class="primary-btn">
+Generer skjema
 </button>
 
+<div id="generatedSection" class="hidden">
+
+<h2>Lenke</h2>
+<textarea id="generatedLink" readonly></textarea>
+
+<h2>Emne</h2>
+<textarea id="generatedSubject" readonly></textarea>
+
+<h2>Melding til avdelingsleder</h2>
+<textarea id="generatedMessage" readonly></textarea>
+
+<button id="startBtn" class="primary-btn">
+Fortsett til kompetanseutvelgelse
+</button>
+
+</div>
 
 </div>
 
