@@ -213,7 +213,7 @@ Generer skjema
 <h2>Melding til avdelingsleder</h2>
 <textarea id="generatedMessage" readonly></textarea>
 
-<button id="startBtn" class="primary-btn">
+<button id="startBtn" class="primary-btn hidden">
 Fortsett til kompetanseutvelgelse
 </button>
 
@@ -557,7 +557,14 @@ document.getElementById("comment").value;
 const subject =
 `Kompetanseutvelgelse - ${jobTitle}`;
 
-const link = window.location.href;
+const link =
+window.location.origin +
+window.location.pathname +
+"?job=" + encodeURIComponent(jobTitle) +
+"&manager=" + encodeURIComponent(managerName) +
+"&recruiter=" + encodeURIComponent(recruiterName) +
+"&recruiterEmail=" + encodeURIComponent(recruiterEmail) +
+"&comment=" + encodeURIComponent(comment);
 
 const message =
 `Hei ${managerName},
