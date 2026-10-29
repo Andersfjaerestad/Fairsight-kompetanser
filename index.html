@@ -611,6 +611,38 @@ document.getElementById("selectionPage").classList.remove("hidden");
 });
 
 
+const params = new URLSearchParams(window.location.search);
+
+if(params.get("job")){
+
+document.getElementById("jobTitle").value =
+params.get("job") || "";
+
+document.getElementById("managerName").value =
+params.get("manager") || "";
+
+document.getElementById("recruiterName").value =
+params.get("recruiter") || "";
+
+document.getElementById("recruiterEmail").value =
+params.get("recruiterEmail") || "";
+
+document.getElementById("comment").value =
+params.get("comment") || "";
+
+document.getElementById("jobPreview").innerText =
+params.get("job") || "";
+
+if(params.get("comment")){
+document.getElementById("commentPreview").innerHTML =
+"<strong>Kommentar:</strong> " + params.get("comment");
+}
+
+document.getElementById("setupPage").classList.add("hidden");
+document.getElementById("selectionPage").classList.remove("hidden");
+
+}
+  
 const submitBtn=document.getElementById("submitBtn");
 const status=document.getElementById("status");
 
