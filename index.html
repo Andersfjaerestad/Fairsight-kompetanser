@@ -542,6 +542,19 @@ ${item.details}
 
 cards.appendChild(card);
 
+card.querySelector(".toggle").addEventListener("click",(e)=>{
+
+e.stopPropagation();
+
+const details = card.querySelector(".details");
+
+details.style.display =
+details.style.display === "block"
+? "none"
+: "block";
+
+});
+
 card.addEventListener("click",(e)=>{
 
 if(e.target.classList.contains("toggle")) return;
