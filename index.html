@@ -304,7 +304,10 @@ Fullfør utvelgelsen
 <div class="result-box">
 <strong>Valgte kompetanser:</strong>
 <ul id="selectedCompetencies"></ul>
-</div>
+
+<button id="sendMailBtn" class="primary-btn">
+Send til rekrutterer
+</button>
 
 
 </div>
@@ -788,6 +791,40 @@ list.appendChild(li);
 document.getElementById("selectionPage").classList.add("hidden");
 document.getElementById("resultPage").classList.remove("hidden");
 
+});
+
+document.getElementById("sendMailBtn").addEventListener("click",()=>{
+
+const recruiterEmail =
+document.getElementById("recruiterEmail").value;
+
+const jobTitle =
+document.getElementById("jobTitle").value;
+
+const managerName =
+document.getElementById("managerName").value;
+
+const selected = [];
+
+document.querySelectorAll("#selectedCompetencies li").forEach(li=>{
+
+selected.push(li.innerText);
+
+});
+
+const body =
+`Stilling: ${jobTitle}
+
+Valgte kompetanser:
+
+${selected.map((item,index)=>`${index+1}. ${item}`).join("\n")}
+
+Besvart av:
+
+${managerName}`;
+
+window.location.href =
+`mailto:${recruiterEmail}?subject=${encodeURIComponent("Kompetanseutvelgelse - " + jobTitle)}&body=${encodeURIComponent(body)}`;
 
 });
 
