@@ -544,20 +544,19 @@ cards.appendChild(card);
 
 card.addEventListener("click",(e)=>{
 
-if(e.target.classList.contains("toggle")) return;
+if(
+e.target.classList.contains("toggle")
+) return;
 
 const checkbox = card.querySelector(".check");
 
+if(
+e.target.classList.contains("check")
+){
+return;
+}
+
 checkbox.checked = !checkbox.checked;
-
-document.querySelectorAll(".card").forEach(c=>{
-
-c.classList.toggle(
-"selected",
-c.querySelector(".check").checked
-);
-
-});
 
 checkbox.dispatchEvent(new Event("change"));
 
@@ -686,8 +685,6 @@ document.querySelectorAll(".check:checked");
 if(selected.length > 6){
 
 event.target.checked = false;
-
-alert("Du kan bare velge 6 kompetanser.");
 
 return;
 
