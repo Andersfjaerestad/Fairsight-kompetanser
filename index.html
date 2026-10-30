@@ -678,48 +678,35 @@ const status=document.getElementById("status");
 
 document.addEventListener("change",(event)=>{
 
-
 if(!event.target.classList.contains("check")) return;
-
 
 const selected =
 document.querySelectorAll(".check:checked");
 
+if(selected.length > 6){
 
-if(selected.length>6){
-
-
-event.target.checked=false;
-
+event.target.checked = false;
 
 alert("Du kan bare velge 6 kompetanser.");
 
-
 return;
-
 
 }
 
-
 document.querySelectorAll(".card").forEach(card=>{
-
 
 card.classList.toggle(
 "selected",
 card.querySelector(".check").checked
 );
 
-
 });
 
-
-status.innerText=
+status.innerText =
 `Valgt ${selected.length} av 6 kompetanser`;
 
-
-submitBtn.disabled=
-selected.length!==6;
-
+submitBtn.disabled =
+selected.length !== 6;
 
 });
 
