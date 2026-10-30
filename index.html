@@ -544,15 +544,14 @@ cards.appendChild(card);
 
 card.addEventListener("click",(e)=>{
 
-if(
-e.target.classList.contains("toggle")
-) return;
+if(e.target.classList.contains("toggle")) return;
 
 const checkbox = card.querySelector(".check");
 
-if(
-e.target.classList.contains("check")
-){
+const selectedCount =
+document.querySelectorAll(".check:checked").length;
+
+if(!checkbox.checked && selectedCount >= 6){
 return;
 }
 
