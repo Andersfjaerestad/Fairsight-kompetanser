@@ -554,7 +554,11 @@ const selectedCount =
 document.querySelectorAll(".check:checked").length;
 
 if(!checkbox.checked && selectedCount >= 6){
+
+alert("Du kan maksimalt velge 6 kompetanser. Fjern en valgt kompetanse før du velger en ny.");
+
 return;
+
 }
 
 checkbox.click();
@@ -738,12 +742,12 @@ document.getElementById("resultManager").innerText =
 document.getElementById("managerName").value;
 
 
-document.getElementById("resultRecipients").innerText =
-document.getElementById("recipients").value;
+// document.getElementById("resultRecipients").innerText =
+// document.getElementById("recipients").value;
 
 
-document.getElementById("resultComment").innerText =
-document.getElementById("comment").value || "-";
+// document.getElementById("resultComment").innerText =
+// document.getElementById("comment").value || "-";
 
 
 const list =
