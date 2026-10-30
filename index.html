@@ -96,8 +96,17 @@ background:#eceaf2;
 padding:20px;
 border-radius:12px;
 transition:.2s;
+position:relative;
 }
 
+.check{
+width:40px;
+height:40px;
+position:absolute;
+top:20px;
+right:20px;
+cursor:pointer;
+}
 
 .card.selected{
 background:#9ff2cb;
@@ -533,6 +542,17 @@ ${item.details}
 
 cards.appendChild(card);
 
+card.addEventListener("click",(e)=>{
+
+if(e.target.classList.contains("toggle")) return;
+
+const checkbox = card.querySelector(".check");
+
+checkbox.checked = !checkbox.checked;
+
+checkbox.dispatchEvent(new Event("change"));
+
+});
 
 });
 
