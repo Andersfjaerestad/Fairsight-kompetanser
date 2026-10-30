@@ -546,6 +546,8 @@ card.addEventListener("click",(e)=>{
 
 if(e.target.classList.contains("toggle")) return;
 
+if(e.target.classList.contains("check")) return;
+
 const checkbox = card.querySelector(".check");
 
 const selectedCount =
@@ -555,9 +557,7 @@ if(!checkbox.checked && selectedCount >= 6){
 return;
 }
 
-checkbox.checked = !checkbox.checked;
-
-checkbox.dispatchEvent(new Event("change"));
+checkbox.click();
 
 });
 
