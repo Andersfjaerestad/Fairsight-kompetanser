@@ -8,7 +8,7 @@
 
 <style>
 body{
-font-family:Segoe UI, Arial, sans-serif;
+font-family:Segoe UI, Arial, sans-serif;F
 background:#ece9ff;
 margin:0;
 padding:30px;
@@ -309,13 +309,30 @@ Fullfør utvelgelsen
 Send til rekrutterer
 </button>
 
+<div class="result-box" style="margin-top:20px;">
 
+<p style="font-weight:bold;">
+Hvis e-posten ikke åpnes automatisk
+</p>
+
+<p>
+Send resultatet manuelt til:
+</p>
+
+<span id="backupEmail"></span>
+
+<button id="copyEmailBtn"
+style="border:none;background:none;cursor:pointer;font-size:18px;">
+📄📄
+</button>
+
+</div>
+  
 </div>
 
 
 </div>
-
-
+  
 <script>
 
 
@@ -828,7 +845,20 @@ window.location.href =
 
 });
 
+document.getElementById("backupEmail").innerText =
+document.getElementById("recruiterEmail").value;
 
+document.getElementById("copyEmailBtn").addEventListener("click",()=>{
+
+const email =
+document.getElementById("recruiterEmail").value;
+
+navigator.clipboard.writeText(email);
+
+alert("E-postadresse kopiert");
+
+});
+  
 </script>
 
 
