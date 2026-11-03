@@ -323,7 +323,13 @@ Send resultatet manuelt til:
 
 <button id="copyEmailBtn"
 style="border:none;background:none;cursor:pointer;font-size:18px;">
-📄📄
+📄
+</button>
+
+<br><br>
+
+<button id="copyWholeMailBtn" class="primary-btn">
+Kopier e-postinnhold
 </button>
 
 </div>
@@ -856,6 +862,40 @@ document.getElementById("recruiterEmail").value;
 navigator.clipboard.writeText(email);
 
 alert("E-postadresse kopiert");
+
+});
+
+
+document.getElementById("copyWholeMailBtn").addEventListener("click",()=>{
+
+const jobTitle =
+document.getElementById("jobTitle").value;
+
+const managerName =
+document.getElementById("managerName").value;
+
+const selected = [];
+
+document.querySelectorAll("#selectedCompetencies li").forEach(li=>{
+
+selected.push(li.innerText);
+
+});
+
+const mailText =
+`Stilling: ${jobTitle}
+
+Valgte kompetanser:
+
+${selected.map((item,index)=>`${index+1}. ${item}`).join("\n")}
+
+Besvart av:
+
+${managerName}`;
+
+navigator.clipboard.writeText(mailText);
+
+alert("E-postinnhold kopiert");
 
 });
   
