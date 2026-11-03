@@ -852,19 +852,20 @@ window.location.href =
 });
 
 document.getElementById("backupEmail").innerText =
-document.getElementById("recruiterEmail").value;
+document.getElementById("recruiterEmail").value ||
+new URLSearchParams(window.location.search).get("recruiterEmail") ||
+"";
 
 document.getElementById("copyEmailBtn").addEventListener("click",()=>{
 
 const email =
-document.getElementById("recruiterEmail").value;
+document.getElementById("backupEmail").innerText;
 
 navigator.clipboard.writeText(email);
 
 alert("E-postadresse kopiert");
 
 });
-
 
 document.getElementById("copyWholeMailBtn").addEventListener("click",()=>{
 
