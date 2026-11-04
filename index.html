@@ -861,9 +861,10 @@ document.getElementById("copyEmailBtn").addEventListener("click",()=>{
 const email =
 document.getElementById("backupEmail").innerText;
 
-navigator.clipboard.writeText(email);
-
-alert("E-postadresse kopiert");
+window.prompt(
+"Kopier e-postadressen med Ctrl+C og trykk OK:",
+email
+);
 
 });
 
