@@ -625,7 +625,7 @@ const comment =
 document.getElementById("comment").value;
 
 const subject =
-`Kompetanseutvelgelse - ${jobTitle}`;
+`Valg av kompetanser til personlighetstest - ${jobTitle}`;
 
 const link =
 window.location.origin +
@@ -639,13 +639,15 @@ window.location.pathname +
 const message =
 `Hei ${managerName},
 
-Som en del av rekrutteringsprosessen for stillingen ${jobTitle} ønsker jeg at du velger de seks kompetansene som du mener er viktigst for å lykkes i rollen.
+Som en del av rekrutteringsprosessen for stillingen «${jobTitle}» ber vi deg gjennomføre en kort kompetanseutvelgelse.
 
-Klikk på lenken under for å gjennomføre kompetanseutvelgelsen.
+Oppgaven består i å velge de seks kompetansene du mener er viktigst for å lykkes i rollen. Kompetansene som velges vil danne utgangspunkt for personlighetstesten som benyttes i rekrutteringsprosessen.
+
+Klikk på lenken under for å gjennomføre utvelgelsen:
 
 ${link}
 
-${comment ? "Kommentar: " + comment : ""}
+${comment ? "Kommentar fra rekrutterer:\n" + comment : ""}
 
 På forhånd takk for hjelpen.
 
@@ -836,18 +838,22 @@ selected.push(li.innerText);
 });
 
 const body =
-`Stilling: ${jobTitle}
+`Hei,
+
+Kompetanseutvelgelsen for stillingen «${jobTitle}» er nå gjennomført.
+
+Nedenfor finner du de seks kompetansene som er vurdert som viktigst for å lykkes i rollen. Disse kompetansene vil benyttes som grunnlag for den videre kandidatvurderingen og danne utgangspunkt for personlighetstesten i rekrutteringsprosessen.
 
 Valgte kompetanser:
 
 ${selected.map((item,index)=>`${index+1}. ${item}`).join("\n")}
 
-Besvart av:
+Utfylt av:
 
 ${managerName}`;
 
 window.location.href =
-`mailto:${recruiterEmail}?subject=${encodeURIComponent("Kompetanseutvelgelse - " + jobTitle)}&body=${encodeURIComponent(body)}`;
+`mailto:${recruiterEmail}?subject=${encodeURIComponent("Kompetanseutvelgelse gjennomført - " + jobTitle)}&body=${encodeURIComponent(body)}`;
 
 });
 
