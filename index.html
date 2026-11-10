@@ -901,10 +901,9 @@ Besvart av:
 
 ${managerName}`;
 
-window.prompt(
-"Kopier teksten med Ctrl+C og trykk OK:",
-mailText
-);
+navigator.clipboard.writeText(mailText);
+
+alert("E-postinnhold kopiert");
 
 });
   
